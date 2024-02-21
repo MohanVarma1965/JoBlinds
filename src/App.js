@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import Header from "./pages/Header";
+import Banner from "./pages/Banner";
+import OurProducts from "./pages/OurProducts";
+import ProductGrid from "./pages/ProductGrid";
+
+import BannerImage from "./pages/BannerImage";
+import ContactForm from "./pages/ContactForm";
+import Footer from "./pages/Footer";
+
+function HomePage() {
+  return <div></div>;
+}
+
+const products = [
+  { title: "Zebra Blinds", imageUrl: "/gridImages/one.png" },
+  { title: "Shangri-La Blinds", imageUrl: "/gridImages/two.png" },
+  { title: "Roller Blinds", imageUrl: "/gridImages/three.png" },
+  { title: "Drapery", imageUrl: "/gridImages/two.png" },
+  { title: "Honeycomb Blinds", imageUrl: "/gridImages/one.png" },
+  { title: "Automation", imageUrl: "/gridImages/two.png" },
+  { title: "Zebra Blinds", imageUrl: "/gridImages/one.png" },
+  { title: "Shangri-La Blinds", imageUrl: "/gridImages/one.png" },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Banner />
+        <Header />
+        <BannerImage />
+        <OurProducts />
+        <ProductGrid products={products} />
+        <ContactForm />
+        <Footer />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
